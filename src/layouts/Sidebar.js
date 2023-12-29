@@ -56,21 +56,20 @@ const Sidebar = () => {
     to: location.pathname,
     from: location.pathname 
   });
-  
-  if (route.to === route.from) {
+  if (route.to ===  route.from) {
   } else {
     window.location.reload();
-    console.log("reloaddata");
   }
-
   useEffect(() => {
     setRoute((prev) => {
       localStorage.setItem("data", JSON.stringify({ to: location.pathname, from: prev.to }));
-      return { to: location.pathname, from: prev.to };
+      return { to: location.pathname, from: prev.to};
     });
   }, [location]);
-  
-
+  const navdata = (path) => {
+    navigate(path);
+    window.location.reload();
+  };
 
   return (
     <div className="bg-dark">
@@ -93,7 +92,9 @@ const Sidebar = () => {
                     ? "active nav-link py-3"
                     : "nav-link py-3"
                 }
-                onClick={() => navigate(navItem.path)}
+                // onClick={() => navigate(navItem.path)}
+                onClick={() => navdata(navItem.path)}
+
               >
                 <i className={navItem.icon}></i>
                 <span className="ms-3 d-inline-block">{navItem.title}</span>
