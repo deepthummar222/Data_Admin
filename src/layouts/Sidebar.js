@@ -69,6 +69,7 @@ const Sidebar = () => {
   const navdata = (path) => {
     navigate(path);
     window.location.reload();
+    console.log("dhusygdyuasfdy")
   };
 
   return (
