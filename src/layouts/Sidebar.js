@@ -56,6 +56,12 @@ const Sidebar = () => {
     to: location.pathname,
     from: location.pathname 
   });
+  
+  if (route.to === route.from) {
+  } else {
+    window.location.reload();
+    console.log("reloaddata");
+  }
 
   useEffect(() => {
     setRoute((prev) => {
@@ -65,11 +71,6 @@ const Sidebar = () => {
   }, [location]);
   
 
-  if (route.to === route.from) {
-  } else {
-    window.location.reload();
-    console.log("reloaddata");
-  }
 
   return (
     <div className="bg-dark">
